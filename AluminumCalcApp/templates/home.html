@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Library</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>Tables</h1>
+    <a href="/create" class="btn btn-success btn-lg w-100 my-4">+ Create</a>
+
+    <table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id (PK)</th>
+                <th scope="col">Name</th>
+                <th scope="col">Alloy</th>
+                <th scope="col">Diameter</th>
+                <th scope="col">Tolerance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Replace with real data in a dynamic system -->
+             {% for result in data%}
+            <tr>
+                <th scope="row">{{result.id}}</th>
+                <td scope="row">{{result.name}}</td>
+                <td scope="row">{{result.alloy}}</td>
+                <td scope="row">{{result.diameter}}</td>
+                <td scope="row">{{result.tolerance1}}</td>
+                <td>
+                    <a href="/update/{{result.id}}" class="btn btn-warning btn-lg w-100 my-2">Update</a>
+                    <a href="/delete/{{result.id}}" onclick="return confirm('Are you sure you want to delete this tolerance?')" class="btn btn-danger btn-lg w-100 my-2">Delete</a>
+                </td>
+            </tr>
+
+           {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

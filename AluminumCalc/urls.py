@@ -20,11 +20,15 @@ from AluminumCalcApp import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     #OUR HOME PAGE
-    path('', views.home, name='home'),
+    path('', views.show12_2UserTolerances, name='home'),
     #CREATE PAGE
     path('create/', views.create, name='create'),
     #UPDATE PAGE
     path('update/', views.update, name='update'),
 
-    path('create/insert/', views.insert12_2UserTolerance, name="insert12_2UserTolerance")
+    path('create/insert/', views.insert12_2UserTolerance, name="insert12_2UserTolerance"),
+
+    path('update/<int:id>', views.update12_2UserTolerance, name="update12_2UserTolerance"),
+    path('save/<int:id>', views.saveUpdateChanges, name="saveUpdateChanges"),
+    path('delete/<int:id>', views.deleteUserTolerance, name="deleteUserTolerance"),
 ]

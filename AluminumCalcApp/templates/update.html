@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Table</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>Updating Table "Example Title"</h1>
+
+    <form action="/save/{{UserTolerances12_2Model.id}}" method="POST">
+        {% csrf_token %}
+        <div class="form-group mb-3"></div>
+            <label for="tableTitle">id</label>
+            <input type="text" class="form-control"  name="id" value="{{UserTolerances12_2Model.id}}">
+        </div>
+        <div class="form-group mb-3">
+            <label for="tableTitle">Name</label>
+            <input type="text" class="form-control"  name="name" value="{{UserTolerances12_2Model.name}}">
+        </div>
+        <div class="form-group mb-3">
+            <label for="tableData">Alloy</label>
+            <input type="text" class="form-control"  name="alloy" value="{{UserTolerances12_2Model.alloy}}">
+        </div>
+        <div class="form-group mb-3">
+            <label for="tableData">Diameter</label>
+            <input type="text" class="form-control" name="diameter" value="{{UserTolerances12_2Model.diameter}}">
+        </div>
+        <div class="form-group mb-3"></div>
+            <label for="tableData">Tolerance</label>
+            <input type="text" class="form-control"  name="tolerance1" value="{{UserTolerances12_2Model.tolerance1}}">
+        </div>
+
+
+        <!-- Validation summary would be handled via JavaScript or backend in a real form -->
+        
+        <button type="submit" class="btn btn-secondary" onclick=" href='/'">
+            Update
+        </button>
+        <a href="/" class="btn btn-warning btn-lg w-100 my-4">+ Cancel</a>
+        {% if messages %}
+        {% for mess in messages %}
+        <b style="color:green;">{{mess}}</b>
+        {% endfor %}
+        {% endif %}
+    </form>
+
+    <script>
+        // Example JavaScript to handle form navigation
+        document.querySelector('.btn-secondary').addEventListener('click', function() {
+            window.location.href = '/';
+        });
+    </script>
+</body>
+</html>
